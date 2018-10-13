@@ -31,8 +31,6 @@ setuptools.setup(
     zip_safe=False,
     platforms='any',
     packages=find_packages(exclude=['tests*']),
-    install_requires=[
-        'reportlab>=3.4.0'
-    ],
+    install_requires=[],
     extras_require={},
 )
