@@ -9,7 +9,7 @@ def long_description():
 
 
 setuptools.setup(
-    name='ecs-lib-boleto-python',
+    name='gwa_framework.lib',
     version=gwa_framework.__version__,
 
     url='https://bitbucket.org/serasaecs/ecs-lib-boleto-python',
