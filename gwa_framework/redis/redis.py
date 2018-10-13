@@ -19,3 +19,4 @@ class RedisServer(StrictRedis, metaclass=Singleton):
             port=self.REDIS_PORT,
             db=0,
         )
+
