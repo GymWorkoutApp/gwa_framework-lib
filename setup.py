@@ -31,6 +31,8 @@ setuptools.setup(
     zip_safe=False,
     platforms='any',
     packages=find_packages(exclude=['tests*']),
-    install_requires=[],
+    install_requires=[
+        'redis==2.10.6'
+    ],
     extras_require={},
 )
