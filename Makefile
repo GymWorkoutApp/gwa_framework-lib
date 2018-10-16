@@ -43,7 +43,7 @@ release:
 	@echo "Creating a new release version: ${v}"
 	@echo "__version__ = '${v}'" > `pwd`/gwa_framework/version.py
 	@git add gwa_framework/version.py
-	@git commit -m '${v}'
+	@git commit -m 'New version: ${v}'
 	@git tag ${v}
 	@git push origin ${v}
 	@git push --set-upstream origin "${GIT_CURRENT_BRANCH}"
