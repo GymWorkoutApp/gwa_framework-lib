@@ -13,7 +13,8 @@ class GWAApp(Flask):
 
     def run(self, host=None, port=None, debug=None, load_dotenv=True, **options):
         if config('GWA_ENVIRONMENT', default='hml') == 'hml':
-            for url in self.url_map.iter_rules():
-                print(f' * Urls: {["/v1" + url for url in resource_v1["urls"]]}, '
-                      f'Resource: {resource_v1["resource"].__name__}')
+            for rule in self.url_map.iter_rules():
+                print(f' * Url: {rule.rule}, '
+                      f'Resource: {rule.view_functions[rule.endpoint]}, '
+                      f'Endpoint: {rule.endpoint}')
         super(GWAApp, self).run(host, port, debug, load_dotenv, **options)
