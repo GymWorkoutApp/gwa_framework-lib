@@ -15,6 +15,6 @@ class GWAApp(Flask):
         if config('GWA_ENVIRONMENT', default='hml') == 'hml':
             for rule in self.url_map.iter_rules():
                 print(f' * Url: {rule.rule}, '
-                      f'Resource: {rule.view_functions[rule.endpoint]}, '
+                      f'Resource: {self.view_functions[rule.endpoint]}, '
                       f'Endpoint: {rule.endpoint}')
         super(GWAApp, self).run(host, port, debug, load_dotenv, **options)
