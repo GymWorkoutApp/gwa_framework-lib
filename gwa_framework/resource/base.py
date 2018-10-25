@@ -1,4 +1,5 @@
 from collections import Mapping, OrderedDict
+from typing import Dict
 
 from flask import request
 from flask_restful import Resource
@@ -28,7 +29,7 @@ class BaseResource(Resource):
             meth = getattr(self, 'get', None)
         assert meth is not None, 'Unimplemented method %r' % self.__actions[request.method.lower()]
 
-        if isinstance(self.method_decorators, OrderedDict):
+        if isinstance(self.method_decorators, Dict):
             decorators = self.method_decorators.get(self.__actions.get(request.method.lower()), [])
         else:
             decorators = self.method_decorators
