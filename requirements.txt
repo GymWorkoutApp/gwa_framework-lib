@@ -2,3 +2,4 @@ flask==1.0.2
 flask-restful==0.3.6
 redis==2.10.6
 python-decouple==3.1
+schematics==2.1.0
