@@ -52,3 +52,7 @@ class BaseResource(Resource):
             return resp
 
         return resp
+
+    @staticmethod
+    def get_args(key, default=None, type=None):
+        return request.args.get(key, default=default, type=type)
