@@ -16,5 +16,6 @@ class GWAApp(Flask):
             for rule in self.url_map.iter_rules():
                 print(f' * Url: {rule.rule}, '
                       f'Resource: {self.view_functions[rule.endpoint].view_class.__name__}, '
-                      f'Endpoint: {rule.endpoint}')
+                      f'Endpoint: {rule.endpoint}, '
+                      f'Methods: {", ".join(self.view_functions[rule.endpoint].methods)}')
         super(GWAApp, self).run(host, port, debug, load_dotenv, **options)
