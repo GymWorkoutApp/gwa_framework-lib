@@ -17,5 +17,5 @@ class GWAApp(Flask):
                 print(f' * Url: {rule.rule}, '
                       f'Resource: {self.view_functions[rule.endpoint].view_class.__name__}, '
                       f'Endpoint: {rule.endpoint}, '
-                      f'Methods: {", ".join(self.view_functions[rule.endpoint].methods)}')
+                      f'Methods: {", ".join(rule.methods)}')
         super(GWAApp, self).run(host, port, debug, load_dotenv, **options)
