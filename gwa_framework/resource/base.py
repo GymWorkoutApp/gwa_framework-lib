@@ -1,4 +1,4 @@
-from collections import Mapping, OrderedDict
+from collections import OrderedDict
 from typing import Dict
 
 from flask import request
@@ -8,6 +8,7 @@ from werkzeug.wrappers import Response
 
 
 class BaseResource(Resource):
+    owner = None
     __actions = {
         'get': 'list',
         'post': 'create',
@@ -20,6 +21,8 @@ class BaseResource(Resource):
     def dispatch_request(self, *args, **kwargs):
         # Taken from flask
         # noinspection PyUnresolvedReferences
+        self.owner = request.owner
+
         if request.method.lower() == 'get' and (kwargs or args):
             meth = getattr(self, self.__actions['retrieve'])
         else:
