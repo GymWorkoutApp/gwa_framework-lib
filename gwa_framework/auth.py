@@ -44,11 +44,9 @@ class GWAAuth(object):
             if 'Authorization' in request.headers:
                 bearer_token = request.headers.get("Authorization", default=None)
                 if bearer_token:
-                    resp = get_loop().run_until_complete(call_oauth_token(bearer_token))
+                    token = get_loop().run_until_complete(call_oauth_token(bearer_token))
 
-                    if resp:
-                        token = resp.content.decode()
-                        token = json.loads(token)
+                    if token:
                         decoded = jwt.decode(token['access_token'], GWAAuthSettings.TOKEN_KEY,
                                              algorithms=['HS512'])
                         request.owner = decoded
