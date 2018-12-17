@@ -9,6 +9,7 @@ from werkzeug.wrappers import Response
 
 class BaseResource(Resource):
     owner = None
+    cache = None
     __actions = {
         'get': 'list',
         'post': 'create',
@@ -60,3 +61,10 @@ class BaseResource(Resource):
     @staticmethod
     def get_args(key, default=None, type=None):
         return request.args.get(key, default=default, type=type)
+
+    def set_cache(self, name, key, value, expire=60 * 60):
+        self.cache.hset(name, key, value)
+        self.cache.expire(name, expire)
+
+    def get_cache(self, name, key):
+        return self.cache.hget(name, key)

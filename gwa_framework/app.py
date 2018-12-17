@@ -6,7 +6,7 @@ from flask import Flask
 
 class GWAApp(Flask):
 
-    def __init__(self, import_name,  **kwargs):
+    def __init__(self, import_name, **kwargs):
         os.environ['FLASK_ENV'] = config('GWA_ENVIRONMENT', default='hml')
         os.environ['FLASK_DEBUG'] = config('DEBUG', default='False')
         super(GWAApp, self).__init__(import_name, **kwargs)
