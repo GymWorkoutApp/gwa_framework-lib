@@ -1,3 +1,5 @@
+import json
+import pickle
 from collections import OrderedDict
 from typing import Dict
 
@@ -63,8 +65,11 @@ class BaseResource(Resource):
         return request.args.get(key, default=default, type=type)
 
     def set_cache(self, name, key, value, expire=60 * 60):
-        self.cache.hset(name, key, value)
+        self.cache.hset(name, key, pickle.dumps(value))
         self.cache.expire(name, expire)
 
     def get_cache(self, name, key):
-        return self.cache.hget(name, key)
+        result = self.cache.hget(name, key)
+        if result:
+            return pickle.loads(result)
+        return None
