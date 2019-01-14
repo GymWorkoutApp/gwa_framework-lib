@@ -1,6 +1,6 @@
 from redis import StrictRedis, ConnectionPool
 
-from gwa_framework.singleton import Singleton
+from gwap_framework.singleton import Singleton
 
 
 class RedisServer(StrictRedis, metaclass=Singleton):

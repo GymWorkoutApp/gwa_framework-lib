@@ -4,12 +4,12 @@ from decouple import config
 from flask import Flask
 
 
-class GWAApp(Flask):
+class GwapApp(Flask):
 
     def __init__(self, import_name, **kwargs):
         os.environ['FLASK_ENV'] = config('GWA_ENVIRONMENT', default='hml')
         os.environ['FLASK_DEBUG'] = config('DEBUG', default='False')
-        super(GWAApp, self).__init__(import_name, **kwargs)
+        super(GwapApp, self).__init__(import_name, **kwargs)
 
     def run(self, host=None, port=None, debug=None, load_dotenv=True, **options):
         if config('GWA_ENVIRONMENT', default='hml') == 'hml':
@@ -18,4 +18,4 @@ class GWAApp(Flask):
                       f'Resource: {self.view_functions[rule.endpoint].view_class.__name__}, '
                       f'Endpoint: {rule.endpoint}, '
                       f'Methods: {", ".join(rule.methods)}')
-        super(GWAApp, self).run(host, port, debug, load_dotenv, **options)
+        super(GwapApp, self).run(host, port, debug, load_dotenv, **options)

@@ -6,8 +6,8 @@ from datetime import datetime, date, timedelta
 from pytz import timezone
 from schematics.exceptions import ValidationError
 
-from gwa_framework.schemas.base import BaseSchema
-from gwa_framework.schemas.pub_sub import PubSubMessage
+from gwap_framework.schemas.base import BaseSchema
+from gwap_framework.schemas.pub_sub import PubSubMessage
 
 
 def number_of_workers():
