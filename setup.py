@@ -13,7 +13,7 @@ setuptools.setup(
     name='gwap-framework',
     version=gwap_framework.__version__,
 
-    url='https://bitbucket.org/serasaecs/ecs-lib-boleto-python',
+    url='https://github.com/GymWorkoutApp/gwap-framework',
     description='Biblioteca padrão de framework para aplicações em Python no GWAP.',
     long_description=long_description(),
     long_description_content_type="text/markdown",
@@ -41,7 +41,7 @@ setuptools.setup(
         'schematics==2.1.0',
         'aiohttp==3.4.4',
         'pyjwt==1.7.0',
-        'sqlalchemy==1.2.12',
+        'sqlalchemy==1.2.16',
     ],
     extras_require={},
 )

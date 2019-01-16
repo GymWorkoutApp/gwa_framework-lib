@@ -1,6 +1,6 @@
 # Variables
 GIT_CURRENT_BRANCH := ${shell git symbolic-ref --short HEAD}
-NAME := gwa_framework.lib
+NAME := gwa-framework
 BASE_DIR := ./
 SRC_DIR := $(BASE_DIR)/gwa_framework/
 SRC_TESTS_DIR := $(SRC_DIR)/tests/
@@ -41,8 +41,8 @@ release:
 		exit 1; \
 	fi
 	@echo "Creating a new release version: ${v}"
-	@echo "__version__ = '${v}'" > `pwd`/gwa_framework/version.py
-	@git add gwa_framework/version.py
+	@echo "__version__ = '${v}'" > `pwd`/gwap_framework/version.py
+	@git add gwap_framework/version.py
 	@git commit -m 'New version: ${v}'
 	@git tag ${v}
 	@git push origin ${v}
