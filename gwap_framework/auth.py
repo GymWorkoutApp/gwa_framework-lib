@@ -18,18 +18,18 @@ class GwapAuth:
     app = None
     logger = None
 
-    def __init__(self, app: Union[GwapApp, Blueprint]):
+    def __init__(self, app: Union[GwapApp, Blueprint], logger):
         if app:
-            self.init_app(app)
+            self.init_app(app, logger)
 
-    def init_app(self, app) -> None:
+    def init_app(self, app, logger) -> None:
         """
 
         :param app: GwapApp
         :return: None
         """
         self.app = app
-        self.logger = app.logger
+        self.logger = logger
 
         async def call_oauth_token(bearer_token):
             async with aiohttp.ClientSession() as session:

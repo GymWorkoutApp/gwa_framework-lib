@@ -24,7 +24,8 @@ class BaseResource(Resource):
     def dispatch_request(self, *args, **kwargs):
         # Taken from flask
         # noinspection PyUnresolvedReferences
-        self.owner = request.owner
+        if hasattr(request, 'owner'):
+            self.owner = request.owner
 
         if request.method.lower() == 'get' and (kwargs or args):
             meth = getattr(self, self.__actions['retrieve'])
